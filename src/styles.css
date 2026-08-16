@@ -157,7 +157,7 @@ h3 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: clamp(16px, 2.6vw, 34px);
 }
 
 .nav-links a {
@@ -188,6 +188,39 @@ h3 {
 .nav-links a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+.language-switcher {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.025);
+}
+
+.language-switcher button {
+  min-width: 31px;
+  padding: 5px 6px;
+  border: 0;
+  border-radius: 5px;
+  color: #77828e;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: transparent;
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.language-switcher button:hover {
+  color: var(--text);
+}
+
+.language-switcher button.is-active {
+  color: #07120e;
+  background: var(--mint);
 }
 
 .menu-button {
@@ -1369,6 +1402,15 @@ footer {
 
   .nav-links a::after {
     display: none;
+  }
+
+  .language-switcher {
+    margin-top: 6px;
+  }
+
+  .language-switcher button {
+    flex: 1;
+    min-height: 34px;
   }
 
   .hero {
